@@ -6,10 +6,6 @@ import React, { useState } from "react";
 import SearchInformation from "./Components/SearchInformation";
 
 const App = () => {
-  // const URLApi = "https://serpapi.com/search.json?";
-  // const apiKey =
-  //   "a62389b08a52b6cff9c889a2a8e852037a08a010e3f984e773946097d02b67d3";
-
   let [dataGoogle, setDataGoogle] = useState(null);
   let [dataYoutube, setDataYoutube] = useState(null);
   let [search, setSearch] = useState("");
@@ -80,7 +76,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <h1 className="title">Library</h1>
+      <h1 className="title">OLib</h1>
 
       <div>
         <form action="#" className="formContainer">
