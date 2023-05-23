@@ -6,9 +6,9 @@ import React, { useState } from "react";
 import SearchInformation from "./Components/SearchInformation";
 
 const App = () => {
-  const URLApi = "https://serpapi.com/search.json?";
-  const apiKey =
-    "a62389b08a52b6cff9c889a2a8e852037a08a010e3f984e773946097d02b67d3";
+  // const URLApi = "https://serpapi.com/search.json?";
+  // const apiKey =
+  //   "a62389b08a52b6cff9c889a2a8e852037a08a010e3f984e773946097d02b67d3";
 
   let [dataGoogle, setDataGoogle] = useState(null);
   let [dataYoutube, setDataYoutube] = useState(null);
