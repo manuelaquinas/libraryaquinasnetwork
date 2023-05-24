@@ -9,7 +9,7 @@ const CardVideo = ({ title, link, length, description, views }) => {
           <b>{title}</b>
         </p>
       </a>
-      <video width="560" height="315" src={link} controls></video>
+      <video width="420" height="315" src={link} controls></video>
       {/* <p className="text"><b>Source: </b>{link}</p> */}
       <p className="text"><b>Description: </b>"{description}"</p>
       {/* <p className="text">

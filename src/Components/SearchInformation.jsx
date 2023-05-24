@@ -1,14 +1,13 @@
 const SearchInformation = ({ dataGoogle, dataYoutube }) => {
   if (dataGoogle === null || dataYoutube === null) {
     return (
-        <div className="SearchInfoContainer">
-            <h2 className="SearchInfoContainerTitle">Search information</h2>
+        <div className="d-flex justify-content-center align-content-center ">
+            <h5 className="SearchInfoContainerNoSearch">Please enter a search term</h5>
         </div>
     )
   } else {
     return (
-      <div className="SearchInfoContainer">
-        <h2 className="SearchInfoContainerTitle">Search information</h2>
+      <div className="SearchInfoContainer d-flex">
         <p>
           <b>Total results: </b>
           {dataYoutube &&

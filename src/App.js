@@ -76,84 +76,109 @@ const App = () => {
 
   return (
     <div className="App">
-      <h1 className="title">OLib</h1>
+      <div className="">
 
-      <div>
         <form action="#" className="formContainer">
-          <input
-            onChange={(event) => setSearch(event.target.value)}
-            className="searchField"
-            type="text"
-            value={search}
-            placeholder="Search"
-          ></input>
-          <button onClick={getData} className="buttonSearch">
-            Go
-          </button>
 
-          <label className="textSearch" for="afterYear">
-            From:
-          </label>
-          <input
-            onChange={(event) => setAfterYear(event.target.value)}
-            className="searchFieldDate"
-            value={afterYear}
-            type="number"
-            id="afterYear"
-            name="afterYear"
-            min="1990"
-            max="2023"
-          ></input>
+          <div className="headerSection">
+            <div className="container d-flex ">
+              <h1 className="title col-2 my-2">Olib</h1>
+              <div class="input-group my-3">
+                <input type="text" className="form-control" placeholder="Search" aria-label="Search" aria-describedby="button-addon2" onChange={(event) => setSearch(event.target.value)} value={search}></input>
+                <button class="btn btn-secondary" type="button" onClick={getData} id="button-addon2">Go</button>
+              </div>
+            </div>
+          </div>
+          <div className="container d-flex  align-items-end">
+            <div class="mb-3 col-2">
+              <label for="floatingInputValue" className="form-label">From:</label>
+              <input
+                onChange={(event) => setAfterYear(event.target.value)}
+                type="number"
+                className="form-control"
+                id="afterYear"
+                name="afterYear"
+                min="1990"
+                max="2023"
 
-          <label className="textSearch" for="beforeYear">
-            To:
-          </label>
-          <input
-            onChange={(event) => setBeforeYear(event.target.value)}
-            className="searchFieldDate"
-            value={beforeYear}
-            type="number"
-            id="beforeYear"
-            name="beforeYear"
-            min="1990"
-            max="2023"
-          ></input>
+                value={afterYear}></input>
+            </div>
 
-          <label className="textSearch" htmlFor="miSelect">
-            Language:
-          </label>
-          <select
-            className="searchFieldDate"
-            name="lenguajes"
-            id="miSelect"
-            value={language}
-            onChange={(event) => setLanguage(event.target.value)}
-          >
-            <option value="">Any language</option>
-            <option value="zh-cn">Chinese</option>
-            <option value="en">English</option>
-            <option value="fr">French</option>
-            <option value="de">German</option>
-            <option value="it">Italian</option>
-            <option value="ja">Japanese</option>
-            <option value="ru">Russian</option>
-            <option value="es">Spanish</option>
-          </select>
+            <div class="mb-3 mx-2 col-2">
+              <label for="beforeYear" className="form-label">To:</label>
+              <input
+                onChange={(event) => setBeforeYear(event.target.value)}
+                type="number"
+                className="form-control"
+                id="beforeYear"
+                name="beforeYear"
+                min="1990"
+                max="2023"
+                value={beforeYear}></input>
+
+            </div>
+
+            <div className="mb-3 col-2">
+              <label for="floatingSelect" className="form-label">Language:</label>
+              <select class="form-select"
+                className="searchFieldDate form-select"
+                name="lenguajes"
+                id="miSelect"
+                value={language}
+                onChange={(event) => setLanguage(event.target.value)}
+                aria-label="Floating label select example">
+                <option selected value="">Any language</option>
+                <option value="zh-cn">Chinese</option>
+                <option value="en">English</option>
+                <option value="fr">French</option>
+                <option value="de">German</option>
+                <option value="it">Italian</option>
+                <option value="ja">Japanese</option>
+                <option value="ru">Russian</option>
+                <option value="es">Spanish</option>
+              </select>
+
+            </div>
+            <ul class="nav nav-pills mx-4 mb-3" id="pills-tab" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">All results</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pills-scholar-tab" data-bs-toggle="pill" data-bs-target="#pills-scholar" type="button" role="tab" aria-controls="pills-scholar" aria-selected="false">Google Scholar</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pills-scholar-tab" data-bs-toggle="pill" data-bs-target="#pills-video" type="button" role="tab" aria-controls="pills-video" aria-selected="false">Google Videos</button>
+              </li>
+            </ul>
+          </div>
         </form>
+
       </div>
-
-      <div className="containerDashboard">
+      <div className="container resultsSection">
         <SearchInformation dataGoogle={dataGoogle} dataYoutube={dataYoutube} />
+        <div className="tab-content" id="pills-tabContent">
 
-        <div>
-          <div className="SearchContainer">
-            <h2>Google Scholar Data</h2>
+          <div className="SearchContainer tab-pane fade show active"id="pills-home"role="tabpanel" aria-labelledby="pills-home-tab">
+            <div className="SearchContainer">
+              <CardList data={dataGoogle} />
+              <CardListVideo data={dataYoutube} />
+            </div>
+          </div>
+
+
+          <div className="SearchContainer tab-pane fade"  id="pills-scholar" role="tabpanel" aria-labelledby="pills-scholar-tab"> 
+            <h2 className="SearchContainerTitle mt-4">Google Scholar Data</h2>
             <CardList data={dataGoogle} />
           </div>
-          <div className="SearchContainer">
-            <h2>Google Videos Data</h2>
+
+
+          <div className="SearchContainer tab-pane fade"  id="pills-video" role="tabpanel" aria-labelledby="pills-video-tab">
+            <h2 className="SearchContainerTitle mt-4">Google Videos Data</h2>
             <CardListVideo data={dataYoutube} />
           </div>
+
+
+
         </div>
       </div>
       <footer className="footer"></footer>
